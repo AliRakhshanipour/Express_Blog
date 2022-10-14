@@ -4,6 +4,8 @@ const path = require("path");
 
 const createHttpError = require("http-errors");
 const { StatusCodes: httpStatus } = require("http-status-codes");
+const { AllRoutes } = require("./routers/router");
+const morgan = require("morgan");
 
 class Application {
   #app = express();
@@ -19,6 +21,7 @@ class Application {
     this.errorHandler();
   }
   configApplication() {
+    this.#app.use(morgan("dev"));
     this.#app.use(express.json());
     this.#app.use(express.static(path.join(__dirname, "..", "public")));
     this.#app.use(express.urlencoded({ extended: true }));
@@ -31,27 +34,35 @@ class Application {
   }
   databaseConnection() {
     mongoose.connect(this.#DB_URL, (error) => {
-      if (!error) return console.log("Database Connected");
-      return console.log("Database Connection Failed");
+      if (error) return console.log("Database Connection Failed");
+    });
+    mongoose.connection.on("connected", () => {
+      console.log("Mongo Database Connected Successfully");
+    });
+    mongoose.connection.on("disconnected", () => {
+      console.log("Mongo Database Disconnected");
+    });
+    process.on("SIGINT", async () => {
+      await mongoose.connection.close();
+      process.exit(0);
     });
   }
   errorHandler() {
     this.#app.use((req, res, next) => {
-      return res.status(httpStatus.NOT_FOUND).json({
-        statusCode: httpStatus.NOT_FOUND,
-        message: "Page Not Found",
-      });
+      next(createHttpError.NotFound("Page Not Found"));
     });
     this.#app.use((error, req, res, next) => {
-      const statusCode = error.status || 500;
-      const message = error.message || "InternalServerError";
+      const serverError = createHttpError.InternalServerError();
+      const statusCode = error.status || serverError.status;
+      const message = error.message || serverError.message;
       return res.status(statusCode).json({
-        statusCode,
-        message,
+        errors: { statusCode, message },
       });
     });
   }
-  createRoutes() {}
+  createRoutes() {
+    this.#app.use(AllRoutes);
+  }
 }
 module.exports = {
   Application,
