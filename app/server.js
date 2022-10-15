@@ -1,12 +1,49 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-
-const createHttpError = require("http-errors");
-const { StatusCodes: httpStatus } = require("http-status-codes");
+const createHttpError = require("http-errors"); /// package for error handling
+const { StatusCodes: httpStatus } = require("http-status-codes"); /// package for status handling
 const { AllRoutes } = require("./routers/router");
-const morgan = require("morgan");
+const morgan = require("morgan"); /// logging system in console -- development
 
+/// swagger configuration for API Documentation
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Virgool blog Backend",
+      version: "1.0.0",
+      description:
+        "This Blog Developed By Node.Js , Express.Js , GraphQL , Swagger and ...",
+      contact: {
+        name: "ali.rakhshanipour",
+        email: "ali.rakhshanipour.sru@gmail.com",
+      },
+    },
+    servers: [
+      {
+        url: "http://localhost:2020/",
+        description: "Virgool API Documentation",
+      },
+    ],
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+    security: [{ BearerAuth: [] }],
+  },
+  apis: ["./app/routers/**/*.js"],
+};
+const swaggerUI = require("swagger-ui-express");
+const swaggerJSDoc = require("swagger-jsdoc");
+const specs = swaggerJSDoc(swaggerOptions);
+
+/// application class
 class Application {
   #app = express();
   #PORT;
@@ -22,9 +59,16 @@ class Application {
   }
   configApplication() {
     this.#app.use(morgan("dev"));
-    this.#app.use(express.json());
-    this.#app.use(express.static(path.join(__dirname, "..", "public")));
-    this.#app.use(express.urlencoded({ extended: true }));
+    this.#app.use(express.json()); // for json data received from frontend
+    this.#app.use(express.static(path.join(__dirname, "..", "public"))); // for static directory
+    this.#app.use(express.urlencoded({ extended: true })); // for xxx-form-data
+    this.#app.use(
+      "/api-doc",
+      swaggerUI.serve,
+      swaggerUI.setup(specs, {
+        explorer: true,
+      })
+    );
   }
   createServer() {
     const http = require("http");

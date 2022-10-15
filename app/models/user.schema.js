@@ -1,5 +1,6 @@
-const { Schema, Types, model } = require("mongoose");
+const { Schema, Types, model } = require("mongoose"); // import methods from mongoose
 
+// create schema of user -- database
 const schema = new Schema("user", {
   first_name: {
     type: String,
@@ -22,6 +23,7 @@ const schema = new Schema("user", {
   },
 });
 
+// exports and creates model
 module.exports = {
   UserModel: model("user", schema),
 };
