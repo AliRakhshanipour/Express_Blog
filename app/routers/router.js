@@ -1,10 +1,14 @@
-const { AdminRoutes } = require("./admin/admin.route");
-const { IndexPageRoutes } = require("./api");
+const { verifyAccessToken } = require("../middlewares/verify-access-token");
+const { AdminRoutes } = require("./admin/admin.routes");
+const { IndexPageRoutes } = require("./api/routes/index.route");
+
+const { AuthenticationRoutes } = require("./user/authentication.routes");
 
 const router = require("express").Router();
 
 router.use("/", IndexPageRoutes);
-router.use("/admin", AdminRoutes);
+router.use("/admin", verifyAccessToken, AdminRoutes);
+router.use("/authentication", AuthenticationRoutes);
 
 module.exports = {
   AllRoutes: router,

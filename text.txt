@@ -1,0 +1,5 @@
+{
+  "data": {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5MTIwMzk3NTM5IiwidXNlcklkIjoiNjM0YjE4Mjc1YWMyYmRlYjdiZDBkNzM5IiwiaWF0IjoxNjY2MDgyODAzLCJleHAiOjE2NjYwODY0MDN9._tsAhVIbrYJCSEGi4xDs7F-XkQZ1xpuo8Ja7j8QBdp0"
+  }
+}
