@@ -44,3 +44,43 @@
  *                          type: string
  *                          example: internal server error
  */
+
+/**
+ * @swagger
+ *  definitions:
+ *      successAccessToken:
+ *          type: object
+ *          properties:
+ *              statusCode:
+ *                  type: string
+ *                  example: 200
+ *              data:
+ *                  type: object
+ *                  properties:
+ *                      accessToken:
+ *                          type: string
+ *                          example: "eyJhdcjkkejrervernthmhmncCI6IkpXVCJ9.eyJwaG9uZSI6IjA5MTIwMzk3NTM5IiwidXNlcklkIjoiNjM0YjE4Mjc1YWMyYmRlYjdiZDBkNzM5IiwiaDCKBVScdecwenjweuvbW#23f3AiOjE2NjYwODY0MDN9._tsAhVIbrYJCSEGi4xDs7erervvksdfv8Ja7j8QBdp0"
+ *                      refreshToken:
+ *                          type: string
+ *                          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5MTIwMzk3NTM5IiwidXNlcklkIjoiNjM0YjE4Mjc1YWMyYmRlYjdiZDBkNzM5IiwiaWF0IjoxNjY2MDgyODAzLCJleHAiOjE2NjYwODY0MDN9._tsAhVIbrYJCSEGi4xDs7F-XkQZ1xpuo8Ja7j8QBdp0"
+ */
+
+/**
+ * @swagger
+ *  definitions:
+ *      successRefreshToken:
+ *          type: object
+ *          properties:
+ *              statusCode:
+ *                  type: string
+ *                  example: 200
+ *              data:
+ *                  type: object
+ *                  properties:
+ *                      accessToken:
+ *                          type: string
+ *                          example: "eyJhdcjkkejrervernthmhmncCI6IkpXVCJ9.eyJwaG9uZSI6IjA5MTIwMzk3NTM5IiwidXNlcklkIjoiNjM0YjE4Mjc1YWMyYmRlYjdiZDBkNzM5IiwiaDCKBVScdecwenjweuvbW#23f3AiOjE2NjYwODY0MDN9._tsAhVIbrYJCSEGi4xDs7erervvksdfv8Ja7j8QBdp0"
+ *                      refreshToken:
+ *                          type: string
+ *                          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5MTIwMzk3NTM5IiwidXNlcklkIjoiNjM0YjE4Mjc1YWMyYmRlYjdiZDBkNzM5IiwiaWF0IjoxNjY2MDgyODAzLCJleHAiOjE2NjYwODY0MDN9._tsAhVIbrYJCSEGi4xDs7F-XkQZ1xpuo8Ja7j8QBdp0"
+ */

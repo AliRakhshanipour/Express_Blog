@@ -9,6 +9,7 @@ const router = require("express").Router();
 
 router.post("/send-code", UserAuthenticationController.sendOtp);
 router.post("/check-otp", UserAuthenticationController.checkOtp);
+router.post("/refresh-token", UserAuthenticationController.refreshToken);
 
 module.exports = {
   ApiUserAuthenticationRouter: router,

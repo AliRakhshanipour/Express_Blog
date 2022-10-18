@@ -17,6 +17,12 @@ const { EXPIRES_TIME, ROLE } = require("../../../../utils/constants");
 const {
   signAccessToken,
 } = require("../../../../utils/token-functions/sign-access-token");
+const {
+  verifyRefreshToken,
+} = require("../../../../utils/public-functions/verify-refresh-token");
+const {
+  signRefreshToken,
+} = require("../../../../utils/token-functions/sign-refresh-token");
 
 class UserAuthenticationController extends Controller {
   async sendOtp(req, res, next) {
@@ -49,9 +55,30 @@ class UserAuthenticationController extends Controller {
       if (user.otp.code != code)
         throw createHttpError.Unauthorized("Code Is Not Correct");
       const accessToken = await signAccessToken(user);
+      const refreshToken = await signRefreshToken(user);
       return res.status(httpStatus.OK).json({
+        statusCode: httpStatus.OK,
         data: {
           accessToken,
+          refreshToken,
+        },
+      });
+    } catch (error) {
+      next(createHttpError.BadRequest(error.message));
+    }
+  }
+  async refreshToken(req, res, next) {
+    try {
+      const { refreshToken } = req.body;
+      const phone = await verifyRefreshToken(refreshToken);
+      const user = await UserModel.findOne({ phone });
+      const accessToken = await signAccessToken(user);
+      const newRefreshToken = await signRefreshToken(user);
+      return res.status(httpStatus.OK).json({
+        statusCode: httpStatus.OK,
+        data: {
+          accessToken,
+          newRefreshToken,
         },
       });
     } catch (error) {

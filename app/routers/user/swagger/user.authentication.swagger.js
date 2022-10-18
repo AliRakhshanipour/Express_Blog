@@ -58,18 +58,40 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/successOtpAuth'
+ *                              $ref: '#/definitions/successAccessToken'
  *              400:
  *                  description: bad request
- *                  content:
- *                      application/json:
- *                          schema:
- *                              $ref: '#/definitions/badRequestOtpAuth'
  *              500:
  *                  description: internal server error
+ *
+ */
+
+/**
+ * @swagger
+ *  /authentication/user/refresh-token:
+ *      post:
+ *          tags: [User-Authentication-Panel]
+ *          summary: check otp
+ *          description: one time password (otp) check
+ *          requestBody:
+ *              required: true
+ *              content:
+ *                  application/x-www-form-urlencoded:
+ *                      schema:
+ *                          $ref: "#/components/schemas/refreshToken"
+ *                  application/json:
+ *                      schema:
+ *                          $ref: "#/components/schemas/refreshToken"
+ *          responses:
+ *              200:
+ *                  description: success
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/internalServerErrorOtpAuth'
+ *                              $ref: '#/definitions/successRefreshToken'
+ *              400:
+ *                  description: bad request
+ *              500:
+ *                  description: internal server error
  *
  */
