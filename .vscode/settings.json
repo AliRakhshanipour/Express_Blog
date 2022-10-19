@@ -3,6 +3,7 @@
         "middlewares",
         "openapi",
         "rakhshanipour",
-        "virgool"
+        "virgool",
+        "virtuals"
     ]
 }
