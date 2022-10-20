@@ -7,7 +7,6 @@ const schema = new Schema(
       type: [Types.ObjectId],
       ref: "permissions",
       default: [],
-      unique: true,
     },
   },
   {

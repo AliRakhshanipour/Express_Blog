@@ -58,11 +58,26 @@ class RoleController extends Controller {
         statusCode: httpStatus.OK,
         data: {
           message: "Role And Permissions Updated Successfully",
-          role: role.permissions,
         },
       });
     } catch (error) {
       console.log(error);
+      next(createHttpError.BadRequest(error.message));
+    }
+  }
+  async deleteRole(req, res, next) {
+    try {
+      const { id } = req.params;
+      await this.checkRoleExistById(id);
+      const deleteResult = await RoleModel.deleteOne({ _id: id });
+      if (deleteResult.deletedCount === 0)
+        throw createHttpError.InternalServerError("No Role Deleted");
+      else
+        return res.status(httpStatus.OK).json({
+          statusCode: httpStatus.OK,
+          message: "Role Deleted Successfully",
+        });
+    } catch (error) {
       next(createHttpError.BadRequest(error.message));
     }
   }
