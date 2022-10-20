@@ -8,8 +8,15 @@
  *                  -   title
  *              properties:
  *                  title:
- *                      type: string
+ *                      type:
+ *                      enum: [ADMIN,SUPER_ADMIN,USER,AUTHOR]
  *                      description: title of the role
+ *                  permissions:
+ *                      type: array
+ *                      description: permissions of the role
+ *          editRole:
+ *              type: object
+ *              properties:
  *                  permissions:
  *                      type: array
  *                      description: permissions of the role

@@ -3,7 +3,12 @@ const { Types, model, Schema } = require("mongoose");
 const schema = new Schema(
   {
     title: { type: String, required: true },
-    permissions: { type: [Types.ObjectId], ref: "permissions", default: [] },
+    permissions: {
+      type: [Types.ObjectId],
+      ref: "permissions",
+      default: [],
+      unique: true,
+    },
   },
   {
     toJSON: {

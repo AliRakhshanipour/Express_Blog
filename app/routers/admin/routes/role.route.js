@@ -5,6 +5,7 @@ const router = require("express").Router();
 
 router.post("/addRole", RoleController.addRole);
 router.get("/list", RoleController.getRoleList);
+router.patch("/editRole/:id", RoleController.editRole);
 
 module.exports = {
   ApiRoleRouter: router,

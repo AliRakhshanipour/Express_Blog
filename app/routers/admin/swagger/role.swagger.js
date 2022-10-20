@@ -44,3 +44,28 @@
  *                          schema:
  *                              $ref: '#/definitions/getRoleListServerError'
  */
+
+/**
+ * @swagger
+ *  /admin/role/editRole/{id}:
+ *      patch:
+ *          tags: [RBAC(AdminPanel)]
+ *          summary: edit role's permissions
+ *          parameters:
+ *              -   in: path
+ *                  name: id
+ *                  type: string
+ *                  required: true
+ *          requestBody:
+ *              content:
+ *                  application/x-www-form-urlencoded:
+ *                      schema:
+ *                          $ref: '#/components/schemas/editRole'
+ *          responses:
+ *              200:
+ *                  description: success
+ *              400:
+ *                  description: bad request
+ *              500:
+ *                  description: internal server error
+ */

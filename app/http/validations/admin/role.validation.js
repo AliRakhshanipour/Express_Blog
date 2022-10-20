@@ -14,6 +14,14 @@ const createRoleValidator = joi.object({
     .error(createHttpError.BadRequest("Please Enter a Valid Permission")),
 });
 
+const editRoleValidator = joi.object({
+  permissions: joi
+    .array()
+    .items(joi.string().pattern(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/))
+    .error(createHttpError.BadRequest("Please Enter a Valid Permission")),
+});
+
 module.exports = {
   createRoleValidator,
+  editRoleValidator,
 };
