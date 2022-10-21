@@ -32,6 +32,33 @@
 
 /**
  * @swagger
+ *  /admin/permission/list:
+ *      get:
+ *          tags: [RBAC(AdminPanel)]
+ *          summary: get all permissions
+ *          responses:
+ *              201:
+ *                  description: success
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/getPermissionsList'
+ *              400:
+ *                  description: bad request
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/permissionBadRequest'
+ *              500:
+ *                  description: internal server error
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/permissionInternalError'
+ */
+
+/**
+ * @swagger
  *  /admin/permission/edit/{id}:
  *      patch:
  *          tags: [RBAC(AdminPanel)]

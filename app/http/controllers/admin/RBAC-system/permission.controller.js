@@ -66,6 +66,19 @@ class PermissionController extends Controller {
       next(createHttpError.BadRequest(error.message));
     }
   }
+  async getPermissionsList(req, res, next) {
+    try {
+      const permissions = await PermissionModel.find({});
+      if (!permissions) throw createHttpError.NotFound("No Permission Found");
+      else
+        return res.status(httpStatus.OK).json({
+          statusCode: httpStatus.OK,
+          data: { permissions },
+        });
+    } catch (error) {
+      next(createHttpError.BadRequest(error.message));
+    }
+  }
   async findPermissionById(id) {
     const permission = await PermissionModel.findOne({ _id: id });
     if (!permission)
