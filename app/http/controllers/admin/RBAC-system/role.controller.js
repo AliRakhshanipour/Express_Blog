@@ -14,7 +14,7 @@ const { Controller } = require("../../controller");
 class RoleController extends Controller {
   async getRoleList(req, res, next) {
     try {
-      const roles = await RoleModel.find({});
+      const roles = await RoleModel.find({}).populate("permissions").exec();
       if (!roles) throw createHttpError.NotFound("No Role Found");
       return res.status(httpStatus.OK).json({
         statusCode: httpStatus.OK,

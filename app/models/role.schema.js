@@ -5,11 +5,12 @@ const schema = new Schema(
     title: { type: String, required: true },
     permissions: {
       type: [Types.ObjectId],
-      ref: "permissions",
+      ref: "permission",
       default: [],
     },
   },
   {
+    timestamps: true,
     toJSON: {
       virtuals: true,
     },
