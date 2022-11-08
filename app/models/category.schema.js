@@ -5,6 +5,11 @@ const schema = new Schema({
     type: String,
     required: true,
   },
+  parent: {
+    type: String,
+    ref: "category",
+    default: undefined,
+  },
   description: {
     type: String,
     default: "",
