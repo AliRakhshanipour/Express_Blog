@@ -13,6 +13,12 @@ class CategoryController extends Controller {
       await categoryValidator.validateAsync(req.body);
       const data = { ...req.body };
       deleteEmptyValues(data);
+      const { parent } = req.body;
+      if (parent) {
+        const checkParent = await CategoryModel.findOne({ _id: parent });
+        if (!checkParent)
+          throw createHttpError.NotFound("there is no parent with this id");
+      }
       await this.checkCategoryExist(data.title);
       const category = await CategoryModel.create(data);
       if (!category) throw createHttpError.BadRequest("No category Created");
@@ -28,7 +34,7 @@ class CategoryController extends Controller {
     }
   }
   async checkCategoryExist(title) {
-    const category = CategoryModel.findOne({ title });
+    const category = await CategoryModel.findOne({ title });
     if (category) throw createHttpError.BadRequest("Category already exists");
     else return true;
   }

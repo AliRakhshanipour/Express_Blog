@@ -5,4 +5,6 @@
  *          description: all methods for crud of blogs
  *      -   name: RBAC(AdminPanel)
  *          description: Role Base Access Control System
+ *      -   name: Category(AdminPanel)
+ *          description: All methods for crud of categories
  */

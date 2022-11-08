@@ -10,6 +10,7 @@ const categoryValidator = joi.object({
   parent: joi
     .string()
     .pattern(OBJECTIDPATTERN)
+    .allow("")
     .error(createHttpError.BadRequest("please enter parent correctly")),
   description: joi
     .string()
