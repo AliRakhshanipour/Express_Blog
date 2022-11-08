@@ -21,7 +21,7 @@ const schema = new Schema({
   comments: { type: [commentSchema], default: [] },
   likes: { type: [Types.ObjectId], default: [] },
   dislikes: { type: [Types.ObjectId], default: [] },
-  bookmark: { type: [Types.ObjectId], default: [] },
+  bookmarks: { type: [Types.ObjectId], default: [] },
 });
 
 module.exports = {

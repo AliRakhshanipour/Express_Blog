@@ -1,5 +1,6 @@
 const createHttpError = require("http-errors");
 const joi = require("joi");
+const { OBJECTIDPATTERN } = require("../../../utils/constants");
 
 const addPermissionValidator = joi.object({
   title: joi
@@ -30,7 +31,7 @@ const editPermissionValidator = joi.object({
 const deletePermissionValidator = joi.object({
   id: joi
     .string()
-    .pattern(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/)
+    .pattern(OBJECTIDPATTERN)
     .error(createHttpError.BadRequest("permission id is invalid")),
 });
 

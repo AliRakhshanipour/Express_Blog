@@ -1,3 +1,4 @@
+const { checkPermissions } = require("../../middlewares/permission.guard");
 const { stringToArray } = require("../../middlewares/string-to-array");
 const { ApiBlogRouter } = require("./routes/blog.route");
 const { ApiPermissionRouter } = require("./routes/permission.route");

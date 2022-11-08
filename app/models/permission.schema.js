@@ -6,6 +6,7 @@ const schema = new Schema(
     description: { type: String },
   },
   {
+    timestamps: true,
     toJSON: {
       virtuals: true,
     },
