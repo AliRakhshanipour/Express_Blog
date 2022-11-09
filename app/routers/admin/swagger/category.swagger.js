@@ -29,3 +29,30 @@
  *                          schema:
  *                              $ref: '#/definitions/categoryInternalError'
  */
+
+/**
+ * @swagger
+ *  /admin/category/list:
+ *      get:
+ *          tags: [Category(AdminPanel)]
+ *          summary: get list categories
+ *          responses:
+ *              200:
+ *                  description: success
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/getCategory'
+ *              400:
+ *                  description: success
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/categoryBadRequest'
+ *              500:
+ *                  description: success
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/categoryInternalError'
+ */

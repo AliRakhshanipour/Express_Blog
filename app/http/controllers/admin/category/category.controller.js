@@ -33,6 +33,19 @@ class CategoryController extends Controller {
       next(createHttpError.BadRequest(error.message));
     }
   }
+  async getCategories(req, res, next) {
+    try {
+      const categories = await CategoryModel.find({});
+      if (!categories) throw createHttpError.NotFound("there is no category");
+      else
+        return res.status(httpStatus.OK).json({
+          statusCode: httpStatus.OK,
+          data: categories,
+        });
+    } catch (error) {
+      next(createHttpError.BadRequest(error.message));
+    }
+  }
   async checkCategoryExist(title) {
     const category = await CategoryModel.findOne({ title });
     if (category) throw createHttpError.BadRequest("Category already exists");
