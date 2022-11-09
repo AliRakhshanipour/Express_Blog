@@ -63,9 +63,40 @@ class CategoryController extends Controller {
       next(createHttpError.BadRequest(error.message));
     }
   }
+  async editCategory(req, res, next) {
+    try {
+      const { id } = req.params;
+      await this.checkCategoryExistById(id);
+      const data = { ...req.body };
+      deleteEmptyValues(data);
+      const updateResult = await CategoryModel.updateOne(
+        { _id: id },
+        {
+          $set: data,
+        }
+      );
+      if (updateResult.modifiedCount == 0)
+        throw createHttpError.InternalServerError("update failed");
+      else
+        return res.status(httpStatus.OK).json({
+          statusCode: httpStatus.OK,
+          data: {
+            message: "category updated successfully",
+          },
+        });
+    } catch (error) {
+      next(createHttpError.BadRequest(error.message));
+    }
+  }
   async checkCategoryExist(title) {
     const category = await CategoryModel.findOne({ title });
     if (category) throw createHttpError.BadRequest("Category already exists");
+    else return true;
+  }
+  async checkCategoryExistById(id) {
+    const category = await CategoryModel.findOne({ _id: id });
+    if (!category)
+      throw createHttpError.NotFound("there is no category with this id");
     else return true;
   }
 }
