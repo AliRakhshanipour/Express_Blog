@@ -46,6 +46,23 @@ class CategoryController extends Controller {
       next(createHttpError.BadRequest(error.message));
     }
   }
+  async deleteCategory(req, res, next) {
+    try {
+      const { id } = req.params;
+      const deleteResult = await CategoryModel.deleteOne({ _id: id });
+      if (deleteResult.deletedCount == 0)
+        throw createHttpError.InternalServerError(
+          "there is no category with this id"
+        );
+      else
+        return res.status(httpStatus.OK).json({
+          statusCode: httpStatus.OK,
+          data: { message: "category deleted successfully" },
+        });
+    } catch (error) {
+      next(createHttpError.BadRequest(error.message));
+    }
+  }
   async checkCategoryExist(title) {
     const category = await CategoryModel.findOne({ title });
     if (category) throw createHttpError.BadRequest("Category already exists");
