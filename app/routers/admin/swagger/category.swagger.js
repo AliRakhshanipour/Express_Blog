@@ -56,3 +56,35 @@
  *                          schema:
  *                              $ref: '#/definitions/categoryInternalError'
  */
+
+/**
+ * @swagger
+ *  /admin/category/delete/{id}:
+ *      delete:
+ *          tags: [Category(AdminPanel)]
+ *          summary: delete category with id
+ *          parameters:
+ *              -   in: path
+ *                  name: id
+ *                  required: true
+ *                  type: string
+ *          responses:
+ *              200:
+ *                  description: success
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/deleteCategory'
+ *              400:
+ *                  description: success
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/categoryBadRequest'
+ *              500:
+ *                  description: success
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              $ref: '#/definitions/categoryInternalError'
+ */
