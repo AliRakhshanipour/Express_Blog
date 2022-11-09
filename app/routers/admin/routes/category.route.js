@@ -5,6 +5,7 @@ const {
 
 router.post("/create", CategoryController.createCategory);
 router.get("/list", CategoryController.getCategories);
+router.delete("/delete/:id", CategoryController.deleteCategory);
 
 module.exports = {
   ApiCategoryRouter: router,
