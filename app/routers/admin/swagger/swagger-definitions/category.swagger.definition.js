@@ -25,6 +25,18 @@
  *                      message:
  *                          type: string
  *                          example: 'category deleted successfully'
+ *      editCategory:
+ *          type: object
+ *          properties:
+ *              statusCode:
+ *                  type: string
+ *                  example: 200
+ *              data:
+ *                  type: object
+ *                  properties:
+ *                      message:
+ *                          type: string
+ *                          example: 'category edited successfully'
  *      getCategory:
  *          type: object
  *          properties:

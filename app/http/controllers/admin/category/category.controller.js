@@ -66,6 +66,7 @@ class CategoryController extends Controller {
   async editCategory(req, res, next) {
     try {
       const { id } = req.params;
+      await categoryValidator.validateAsync(req.body);
       await this.checkCategoryExistById(id);
       const data = { ...req.body };
       deleteEmptyValues(data);
