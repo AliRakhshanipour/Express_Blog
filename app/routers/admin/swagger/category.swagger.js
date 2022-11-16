@@ -21,13 +21,13 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: success
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */
 
 /**
@@ -48,13 +48,13 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: success
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */
 
 /**
@@ -80,13 +80,13 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: success
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */
 
 /**
@@ -117,11 +117,11 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: success
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/categoryInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */

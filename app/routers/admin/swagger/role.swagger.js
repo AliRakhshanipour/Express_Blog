@@ -36,13 +36,13 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/getRoleListBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: internal server error
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/getRoleListServerError'
+ *                              $ref: '#/definitions/internalServerError'
  */
 
 /**

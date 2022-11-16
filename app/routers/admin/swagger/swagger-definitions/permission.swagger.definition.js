@@ -57,22 +57,4 @@
  *                                  description:
  *                                      type: string
  *                                      example: "this permission allows to delete a category"
- *      permissionBadRequest:
- *          type: object
- *          properties:
- *              statusCode:
- *                  type: string
- *                  example: 400
- *              message:
- *                  type: string
- *                  example: bad request
- *      permissionInternalError:
- *          type: object
- *          properties:
- *              statusCode:
- *                  type: string
- *                  example: 500
- *              message:
- *                  type: string
- *                  example: internal server error
  */

@@ -21,13 +21,13 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: internal server error
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */
 
 /**
@@ -48,13 +48,13 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: internal server error
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */
 
 /**
@@ -85,13 +85,13 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: internal server error
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */
 
 /**
@@ -117,11 +117,11 @@
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogBadRequest'
+ *                              $ref: '#/definitions/badRequest'
  *              500:
  *                  description: internal server error
  *                  content:
  *                      application/json:
  *                          schema:
- *                              $ref: '#/definitions/blogInternalError'
+ *                              $ref: '#/definitions/internalServerError'
  */

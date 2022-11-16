@@ -38,25 +38,6 @@
  *                          type: array
  *                          example: [node, express,js,swagger,api,documentation]
  *
- *      blogBadRequest:
- *          type: object
- *          properties:
- *              statusCode:
- *                  type: string
- *                  example: 400
- *              message:
- *                  type: string
- *                  example: bad request
- *      blogInternalError:
- *          type: object
- *          properties:
- *              statusCode:
- *                  type: string
- *                  example: 500
- *              message:
- *                  type: string
- *                  example: internal server error
- *
  *      deleteBlog:
  *          type: object
  *          properties:

@@ -1,11 +1,18 @@
 const { Types, model, Schema } = require("mongoose");
 
-const commentSchema = new Schema({
-  user: { type: Types.ObjectId, ref: "users", required: true },
-  comment: { type: String, required: true },
-  parent: { type: Types.ObjectId, ref: "comment" },
-  createdAt: { type: Date, default: new Date().getTime() },
-});
+const commentSchema = new Schema(
+  {
+    user: { type: Types.ObjectId, ref: "users", required: true },
+    comment: { type: String, required: true },
+    parent: { type: Types.ObjectId, ref: "comment" },
+  },
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
 
 const schema = new Schema(
   {
@@ -33,4 +40,5 @@ const schema = new Schema(
 
 module.exports = {
   BlogModel: model("blog", schema),
+  CommentModel: model("comment", commentSchema),
 };

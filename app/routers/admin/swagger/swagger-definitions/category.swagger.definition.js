@@ -55,22 +55,4 @@
  *                              description:
  *                                  type: string
  *                                  example: 'all blogs that relate to programming'
- *      categoryBadRequest:
- *          type: object
- *          properties:
- *              statusCode:
- *                  type: string
- *                  example: 400
- *              message:
- *                  type: string
- *                  example: bad request
- *      categoryInternalError:
- *          type: object
- *          properties:
- *              statusCode:
- *                  type: string
- *                  example: 500
- *              message:
- *                  type: string
- *                  example: internal server error
  */
