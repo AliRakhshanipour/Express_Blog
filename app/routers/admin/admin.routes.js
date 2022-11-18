@@ -5,6 +5,7 @@ const { ApiCategoryRouter } = require("./routes/category.route");
 const { ApiCommentRouter } = require("./routes/comment.route");
 const { ApiPermissionRouter } = require("./routes/permission.route");
 const { ApiRoleRouter } = require("./routes/role.route");
+const { ApiUserRouter } = require("./routes/user.route");
 
 const router = require("express").Router();
 
@@ -13,6 +14,7 @@ router.use("/category", ApiCategoryRouter);
 router.use("/role", stringToArray("permissions"), ApiRoleRouter);
 router.use("/permission", ApiPermissionRouter);
 router.use("/comment", ApiCommentRouter);
+router.use("/user", ApiUserRouter);
 
 module.exports = {
   AdminRoutes: router,
