@@ -8,6 +8,8 @@ const commentSchema = new Schema(
   },
   {
     timestamps: true,
+    versionKey: false,
+    id: false,
     toJSON: {
       virtuals: true,
     },
@@ -35,6 +37,9 @@ const schema = new Schema(
     timestamps: true,
     id: false,
     versionKey: false,
+    toJSON: {
+      virtuals: true,
+    },
   }
 );
 

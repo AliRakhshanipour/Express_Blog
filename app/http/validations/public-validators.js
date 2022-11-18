@@ -5,7 +5,7 @@ const isObjectId = joi.object({
   id: joi
     .string()
     .pattern(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/)
-    .error(createHttpError.BadRequest("permission id is invalid")),
+    .error(createHttpError.BadRequest("id is invalid")),
 });
 
 module.exports = {

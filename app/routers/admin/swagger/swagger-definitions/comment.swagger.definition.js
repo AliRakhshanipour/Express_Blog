@@ -26,7 +26,7 @@
  *                      message:
  *                          type: string
  *                          example: "Comment Deleted Successfully"
- *      getComment:
+ *      getComments:
  *          type: object
  *          properties:
  *              statusCode:
