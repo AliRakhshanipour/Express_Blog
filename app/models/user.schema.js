@@ -15,6 +15,7 @@ const schema = new Schema(
     role: { type: String },
     avatar: { type: String },
     interested_in: { type: [Types.ObjectId], default: [] },
+    bookmarks: { type: [Types.ObjectId], default: [] },
     otp: {
       type: Object,
       default: {
